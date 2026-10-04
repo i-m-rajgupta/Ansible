@@ -1,0 +1,9 @@
+---
+- name: First Basic PB
+  hosts: servers
+
+  tasks:
+  - name: Test Connectivity
+    ping:
+  - name: "Print Output"
+    debug: msg="Hello guys"
