@@ -1,0 +1,14 @@
+---
+- name: Copying file 
+  hosts: servers
+  become: true
+
+  tasks:
+  - name: Copy
+    copy:
+      src: /opt/stack/myfile1.txt
+      dest: /tmp
+      owner: raj
+      group: raj
+      mode: ugo=rw
+      backup: true
