@@ -1,0 +1,37 @@
+---
+- name: Exploring file module
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Creating a file
+    file:
+      path: /tmp/newfile.txt
+      state: touch
+      owner: root
+      group: root
+      mode: 0777
+
+  - name: Creating a directory without any file inside it
+    file:
+      path: /tmp/bare-repo
+      state: directory
+      owner: raj
+      group: raj
+      mode: 0700
+  
+  - name: Creating a directory which contains file in it
+    file:
+      path: /tmp/my-folder
+      state: directory
+      mode: 0750
+  
+  - name: Creating a file under the custom directory 
+    copy:
+      content: |
+        Hello from Ansible!
+        Have a nice day
+      dest: /tmp/my-folder/custom-file.txt
+      owner: raj
+      group: raj
+      mode: 700
