@@ -1,0 +1,21 @@
+---
+- name: Exploring file mod with delete
+  hosts: all
+  become: true
+
+  tasks: 
+    - name: Deleting a file
+      file:
+        path: /tmp/newfile.txt
+        state: absent
+
+    - name: Deleting a bare directory
+      file:
+        path: /tmp/bare-repo
+        state: absent
+
+    - name: Deleting a directory with file
+      file:
+        path: /tmp/my-folder
+        state: absent
+
