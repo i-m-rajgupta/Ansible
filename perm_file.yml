@@ -1,0 +1,9 @@
+---
+- name: Exploring file module with changin permission
+  hosts: all
+
+  tasks:
+    - name: Changing the perm of myfile1
+      file:
+        path: /tmp/myfile1.txt
+        mode: 0400
